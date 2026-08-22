@@ -14,4 +14,8 @@ int main() {
   // Test Move assignment operator
   Vector<int> e;
   e = std::move(a);
+
+  // Test size with constant vector
+  const Vector<int> v;
+  std::cout << v.size();
 }

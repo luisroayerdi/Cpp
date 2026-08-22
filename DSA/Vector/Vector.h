@@ -59,7 +59,7 @@ public:
     }
     return *this;
   }
-
+  // Reserve function
   void reserve(int newCapacity) {
     if (newCapacity <= capacity) {
       return;
@@ -75,6 +75,30 @@ public:
     vector_memory = new_vector_memory;
     capacity = newCapacity;
   }
+
+  // Resize function
+  void resize(int newSize) {
+    if (newSize > capacity) {
+      reserve(newSize);
+    }
+    current_size = newSize;
+  }
+  // Push_back function
+  void push_back(Object newElement) {
+    if (current_size == capacity) {
+      reserve(capacity * 2 + 1);
+    }
+    current_size++;
+    vector_memory[current_size - 1] = newElement;
+  }
+
+  int size() const { return current_size; }
+
+  // Method overloading for operator[]
+  // Accessor
+  const Object &operator[](int index) const { return vector_memory[index]; }
+  // Mutator
+  Object &operator[](int index) { return vector_memory[index]; }
 
 private:
   Object *vector_memory;
