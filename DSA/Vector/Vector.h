@@ -83,13 +83,20 @@ public:
     }
     current_size = newSize;
   }
-  // Push_back function
+  // Function to add element add the end of the vector
   void push_back(Object newElement) {
     if (current_size == capacity) {
       reserve(capacity * 2 + 1);
     }
     current_size++;
     vector_memory[current_size - 1] = newElement;
+  }
+  // Function to delete last elemnt of the vector
+  void pop_back() {
+    if (current_size <= 0) {
+      return;
+    }
+    current_size--;
   }
 
   int size() const { return current_size; }
