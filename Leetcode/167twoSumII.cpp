@@ -3,9 +3,24 @@
 
 class Solution {
 public:
-  std::vector<int> twoSum(std::vector<int>& numbers, int target) {
-    // TODO implement
-    return {};
+  std::vector<int> twoSum(std::vector<int> &numbers, int target) {
+    int left = 0;
+    int right = numbers.size() - 1;
+
+    std::vector<int> solution;
+
+    while (left < right) {
+      if (numbers[left] + numbers[right] > target) {
+        right--;
+      } else if (numbers[left] + numbers[right] < target) {
+        left++;
+      } else {
+        solution.push_back(left + 1);
+        solution.push_back(right + 1);
+        return solution;
+      }
+    }
+    return solution;
   }
 };
 
