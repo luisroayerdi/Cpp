@@ -8,6 +8,8 @@ public:
     std::vector<std::vector<int>> solution;
     std::sort(nums.begin(), nums.end());
 
+    // use for loop instead of while loop easier to keep track
+
     return solution;
   }
 };
