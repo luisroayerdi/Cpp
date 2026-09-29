@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 
 class Fraction {
 private:
@@ -23,11 +24,9 @@ void printFraction(const Fraction *ptr) {
 }
 
 int main() {
-  auto *ptr{new Fraction{3, 5}};
+  auto ptr = std::make_unique<Fraction>(3, 5);
 
-  printFraction(ptr);
-
-  delete ptr;
+  printFraction(ptr.get());
 
   return 0;
 }
